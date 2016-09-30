@@ -8231,73 +8231,75 @@ var _user$project$Main$Score = F2(
 var _user$project$Main$Edit = function (a) {
 	return {ctor: 'Edit', _0: a};
 };
-var _user$project$Main$player = function (player) {
-	var editClass = _elm_lang$core$Native_List.fromArray(
-		[
-			_elm_lang$html$Html_Attributes$class('edit')
-		]);
-	var divPlayer = A2(
-		_elm_lang$html$Html$div,
-		A2(
-			_elm_lang$core$Basics_ops['++'],
-			_elm_lang$core$Native_List.fromArray(
-				[]),
-			editClass),
-		_elm_lang$core$Native_List.fromArray(
+var _user$project$Main$player = F2(
+	function (model, player) {
+		var editClass = model.editMode ? _elm_lang$core$Native_List.fromArray(
 			[
-				_elm_lang$html$Html$text(player.name)
-			]));
-	return A2(
-		_elm_lang$html$Html$li,
-		_elm_lang$core$Native_List.fromArray(
-			[]),
-		_elm_lang$core$Native_List.fromArray(
-			[
-				A2(
-				_elm_lang$html$Html$i,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html_Events$onClick(
-						_user$project$Main$Edit(player))
-					]),
-				_elm_lang$core$Native_List.fromArray(
-					[])),
-				divPlayer,
-				A2(
-				_elm_lang$html$Html$button,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html_Attributes$type$('button'),
-						_elm_lang$html$Html_Events$onClick(
-						A2(_user$project$Main$Score, player, 2))
-					]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text('2pt')
-					])),
-				A2(
-				_elm_lang$html$Html$button,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html_Attributes$type$('button'),
-						_elm_lang$html$Html_Events$onClick(
-						A2(_user$project$Main$Score, player, 3))
-					]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text('3pt')
-					])),
-				A2(
-				_elm_lang$html$Html$div,
+				_elm_lang$html$Html_Attributes$class('edit')
+			]) : _elm_lang$core$Native_List.fromArray(
+			[]);
+		var divPlayer = A2(
+			_elm_lang$html$Html$div,
+			A2(
+				_elm_lang$core$Basics_ops['++'],
 				_elm_lang$core$Native_List.fromArray(
 					[]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text(
-						_elm_lang$core$Basics$toString(player.points))
-					]))
-			]));
-};
+				editClass),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$html$Html$text(player.name)
+				]));
+		return A2(
+			_elm_lang$html$Html$li,
+			_elm_lang$core$Native_List.fromArray(
+				[]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					A2(
+					_elm_lang$html$Html$i,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html_Events$onClick(
+							_user$project$Main$Edit(player))
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[])),
+					divPlayer,
+					A2(
+					_elm_lang$html$Html$button,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html_Attributes$type$('button'),
+							_elm_lang$html$Html_Events$onClick(
+							A2(_user$project$Main$Score, player, 2))
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html$text('2pt')
+						])),
+					A2(
+					_elm_lang$html$Html$button,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html_Attributes$type$('button'),
+							_elm_lang$html$Html_Events$onClick(
+							A2(_user$project$Main$Score, player, 3))
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html$text('3pt')
+						])),
+					A2(
+					_elm_lang$html$Html$div,
+					_elm_lang$core$Native_List.fromArray(
+						[]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html$text(
+							_elm_lang$core$Basics$toString(player.points))
+						]))
+				]));
+	});
 var _user$project$Main$playerList = function (model) {
 	return A2(
 		_elm_lang$html$Html$ul,
@@ -8305,7 +8307,7 @@ var _user$project$Main$playerList = function (model) {
 			[]),
 		A2(
 			_elm_lang$core$List$map,
-			_user$project$Main$player,
+			_user$project$Main$player(model),
 			A2(
 				_elm_lang$core$List$sortBy,
 				function (_) {

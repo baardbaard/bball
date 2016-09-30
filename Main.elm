@@ -253,15 +253,15 @@ playerList : Model -> Html Msg
 playerList model =
     model.players
         |> List.sortBy .name
-        |> List.map player
+        |> List.map (player model)
         |> ul []
 
 
-player : Player -> Html Msg
-player player =
+player : Model -> Player -> Html Msg
+player model player =
     let
         editClass =
-            if True then
+            if model.editMode then
                 [ class "edit" ]
             else
                 []
